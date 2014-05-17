@@ -66,6 +66,15 @@ __完全背包:__
 			cout << dp[W];
 		}
 ```
+__多重部分和（限定个数的背包问题）:__
+```
+		有n种不同大小的数字ai，每种各mi个。判断是否可以从这些数字之中选出若干使它们的和恰好为K。
+		dp[i+1][j]：用前i中数字是否能加和成j
+		dp[i+1][j] = (0<=k<=mi && k*ai<=j时存在使dp[i][j-k*ai]为真的k)
+		void solve(){
+			dp[0][0] = true;
+			for( int i = 0)
+		}
 ### LIS( Longest Increasing Subsequence )
 		求出序列中最长上升子序列
 		
@@ -91,3 +100,4 @@ __完全背包:__
  			cout << lower_bound(dp, dp+n, INF)-dp <<endl;
  		}
  		注：时间复杂度O(nlogn)
+### 
