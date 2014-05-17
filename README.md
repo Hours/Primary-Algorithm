@@ -5,11 +5,11 @@ Get accurent results
 DP( Dynamic Programming )：
 ----------------------
 ### LCS( Longest Common Subsequence )
-		dp[i][j]：s1...si和t1...tj对应的LCS长度<br/>
-			s[i+1] = t[j+1]，在s1...si和t1...tj对应的LCS末尾追加s[i+1]<br/>
-			s1...si和t1...tj+1的LCS<br/>
-			s1...si+1和t1...tj的LCS<br/>
-*  dp[i+1][j+1] = max(dp[i][j]+1,dp[i][j+1],dp[i+1][j] )     (si+1=tj+1)<br/>
+		dp[i][j]：s1...si和t1...tj对应的LCS长度
+			s[i+1] = t[j+1]，在s1...si和t1...tj对应的LCS末尾追加s[i+1]
+			s1...si和t1...tj+1的LCS
+			s1...si+1和t1...tj的LCS 
+		dp[i+1][j+1] = max(dp[i][j]+1,dp[i][j+1],dp[i+1][j] )     (si+1=tj+1)
                            max( dp[i][j+1],dp[i+1][j] )       (others)<br/>
 		void solve(){
 			for( int i = 0; i < n; i++ )
