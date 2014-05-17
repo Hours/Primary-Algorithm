@@ -81,4 +81,11 @@ __完全背包:__
 			}
 			cout << res <<endl;
 		}
- 
+ 		注：时间复杂度O(n^2)
+ 		void solve(){
+ 			fill( dp, dp+n, INF );
+ 			for( int i = 0; i < n; i++ )
+ 				*lower_bound(dp, dp+n, a[i]) = a[i];
+ 			cout << lower_bound(dp, dp+n, INF)-dp <<endl;
+ 		}
+ 		注：时间复杂度O(nlogn)
