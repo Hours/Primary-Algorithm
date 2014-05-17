@@ -67,7 +67,8 @@ __完全背包:__
 		}
 ```
 ### LIS( Longest Increasing Subsequence )
-		`求出序列中最长上升子序列`
+		求出序列中最长上升子序列
+		
 		dp[i]:以ai为末尾的最长上升子序列的长度
 		在满足j<i并且aj < ai的以aj为结尾的上升子列末尾，追加上ai后得到的子序列
 		dp[i] = max{1,dp[j]+1 | j<i && aj < ai }
