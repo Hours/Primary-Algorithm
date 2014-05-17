@@ -69,5 +69,16 @@ __完全背包:__
 ### LIS( Longest Increasing Subsequence )
 		dp[i]:以ai为末尾的最长上升子序列的长度
 		在满足j<i并且aj < ai的以aj为结尾的上升子列末尾，追加上ai后得到的子序列
-		dp[i] = max9)
+		dp[i] = max{1,dp[j]+1 | j<i && aj < ai }
+		void solve(){
+			int res = 0;
+			for( int i = 0; i < n; i++ ){
+				dp[i] = 1;
+				for( int j = 0; j < i; j++ )
+					if( a[j] < a[i] )
+						dp[i] = max( dp[i], dp[j]+1 );
+				res = max(res, dp[i]);
+			}
+			cout << res <<endl;
+		}
  
