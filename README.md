@@ -22,8 +22,8 @@ DP( Dynamic Programming )：
 			cout << dp[n][m];
 		}
 
-2.KP( Knapsack problem )
-   0-1背包:有n个重量和价值分别为wi,vi的物品。从这些物品中挑选出总重量不超过W的物品，求所有挑选方案中价值总和的最大值。
+### KP( Knapsack problem )
+		0-1背包:有n个重量和价值分别为wi,vi的物品。从这些物品中挑选出总重量不超过W的物品，求所有挑选方案中价值总和的最大值。
 		dp[i+1][j]：从前i个物品中选出总重量不超过j的物品时总价值的最大值
 		dp[0][j] = 0
 		dp[i+1][j] = dp[i][j] (j<w[i])
