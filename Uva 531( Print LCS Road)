@@ -1,0 +1,67 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<cstring>
+using namespace std;
+const int maxn = 110;
+string line;
+int dp[maxn][maxn];
+vector<string> a, b, c;
+void initial(){
+     a.clear();
+     b.clear();
+     c.clear();
+     memset( dp, 0, sizeof(dp) );
+}
+void input(){
+     int cnt = 0;
+     if( line != "#" )
+             do{
+                 a.push_back(line);
+             }while( cin >> line && line != "#" );
+     while( cin >> line && line != "#" ){
+         b.push_back(line);
+     }
+}
+
+void computing(){
+     int pos = -1, sign = -1;
+//dp计算最长公共子序列
+     for( int i = 0; i < a.size(); i++ ){
+          for( int j = 0; j < b.size(); j++ ){
+               if( a[i] == b[j] ){
+                   dp[i+1][j+1] = dp[i][j] + 1;
+               }
+               else
+                   dp[i+1][j+1] = max( dp[i][j+1], dp[i+1][j] );
+          }
+     }
+//利用dp返回查询公共路径，该公共路径只是满足于最长公共子序列中的一条路径，并不唯一。因为存在dp[n][m] = dp[n-1][m] = dp[n][m-1] = dp[n-1][m-1]+1
+     int n = a.size(), m = b.size(), amt, cnt;
+     amt = cnt = dp[n][m];
+     c.resize( cnt );
+     while( dp[n][m] ){
+                if( dp[n][m] == dp[n-1][m] )
+                        n--;
+                else if( dp[n][m] == dp[n][m-1] )
+                        m--;
+                else{
+                       c[--cnt] = a[n-1];
+                        n--, m--;
+                }
+     }
+     for( int i = 0; i < amt; i++ )
+        if( i )
+                cout << " " << c[i];
+        else
+                cout <<c[i];
+        cout << endl;
+}
+int main(){
+    while( cin >> line ){
+           initial();
+           input();
+           computing();
+    }
+    return 0;
+}
