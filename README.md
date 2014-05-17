@@ -155,4 +155,22 @@ __多重部分和（限定个数的背包问题）:__
 		注：时间复杂度O(nm)
 ### 多重集组合数
 		有n种物品，第i种物品有ai个。不同种类的物品可以相互区分但相同种类的无法区分。从这些物品中取出m个的话，有多少种取法？求出方案数。
- 
+		dp[i+1][j] = 从前i种物品种取出j个的组合总数
+		为了从前i种物品种取出j个，可以从前i-1种物品种取出j-l个，再从第i种物品中取出k个添加进来
+		dp[i+1][j] = sum( dp[i][j-k] ) from k=0 to min(j,a[i]) 
+		 <=> if( j >= a[i] ) dp[i+1][j] = a[i][j-0] + a[i][j-1] + …… + a[i][0]	[O(nm^2)]
+		 
+		 <=> sum( dp[i][j-k] ) from k=0 to min(j,a[i]) = sum( dp[i][j-1-k] ) + dp[i][j] - dp[i][j-1-ai] from k = 0 to min( j-1, a[i] )
+		 <=> dp[i+1][j] = dp[i+1][j-1] + dp[i][j] - dp[i][j-1-ai]	[O[nm]]
+		void solve(){
+			for( int i = 0; i < n; i++ )
+				dp[i][0] = 1;
+			for( int i = 0; i < n; i++ )
+				for( int j = 1; j <= m; j++ )
+					if( j-1 >= a[i] )
+						dp[i+1][j] = dp[i+1][j-1] + dp[i-1][j] + dp[i-1][j-1-ai];
+					else
+						ap[i+!][j] = dp[i+1][j-1] + dp[i][j];
+			cout << dp[n][m] << endl;
+		]
+		
