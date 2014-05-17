@@ -27,7 +27,7 @@ DP( Dynamic Programming )：
 		dp[i+1][j]：从前i个物品中选出总重量不超过j的物品时总价值的最大值
 		dp[0][j] = 0
 		dp[i+1][j] = dp[i][j] (j<w[i])
-								max(dp[i][j], dp[i][j-w[i]]+v[i]) (others)
+			max(dp[i][j], dp[i][j-w[i]]+v[i]) (others)
 		void solve(){
 			for( int i = 0; i < n; i++ ){
 				for( int j = 0; j <= W; j++ ){
