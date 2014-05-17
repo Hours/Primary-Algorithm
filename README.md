@@ -10,8 +10,9 @@ DP( Dynamic Programming )：
 			s1...si和t1...tj+1的LCS
 			s1...si+1和t1...tj的LCS 
 		dp[i+1][j+1] = max(dp[i][j]+1,dp[i][j+1],dp[i+1][j] )     (si+1=tj+1)
-                           max( dp[i][j+1],dp[i+1][j] )       (others)<br/>
-		void solve(){
+                               max( dp[i][j+1],dp[i+1][j] )               (others)
+  mode:
+		void solve(){   
 			for( int i = 0; i < n; i++ )
 				for( int j = 0; j < m; j++ )
 					if( s[i] == t[j] )
