@@ -11,7 +11,7 @@ DP( Dynamic Programming )：
 			s1...si+1和t1...tj的LCS 
 		dp[i+1][j+1] = max(dp[i][j]+1,dp[i][j+1],dp[i+1][j] )     (si+1=tj+1)
                         max( dp[i][j+1],dp[i+1][j] )               (others)
-	mode:
+	```
 		void solve(){   
 			for( int i = 0; i < n; i++ )
 				for( int j = 0; j < m; j++ )
@@ -21,6 +21,7 @@ DP( Dynamic Programming )：
 						dp[i+1][j+1] = max( dp[i][j+1], dp[i+1][j] );
 			cout << dp[n][m];
 		}
+	```
 
 ### KP( Knapsack problem )
 		0-1背包:有n个重量和价值分别为wi,vi的物品。从这些物品中挑选出总重量不超过W的物品，求所有挑选方案中价值总和的最大值。
